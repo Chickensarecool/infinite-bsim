@@ -213,7 +213,7 @@ let visibleUnlocks = [];
 function getButtonGain(row, tier) {
     let base = D.eq(row, 0) ? 8 : 4;
     let mult = D.eq(row, 0) ? 1 : D.add(row, 1);
-    return D.pow(base, D.pow(1.05, tier).sub(1).mul(20)).mul(mult);
+    return D.pow(base, D.pow(1.05, tier).sub(1).mul(2e68)).mul(mult);
 }
 function getRowMulti(row, index) {
     index ??= game.ladder.findIndex(x => D.eq(x.tier, row));
