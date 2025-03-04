@@ -213,7 +213,7 @@ let visibleUnlocks = [];
 function getButtonGain(row, tier) {
     let base = D.eq(row, 0) ? 8 : 4;
     let mult = D.eq(row, 0) ? 1 : D.add(row, 1);
-    return D.pow(base, D.pow(1.05, tier).sub(1).mul(2e68)).mul(mult);
+    return D.pow(base, D.pow(1.05, tier).sub(1).mul(20)).mul(mult);
 }
 function getRowMulti(row, index) {
     index ??= game.ladder.findIndex(x => D.eq(x.tier, row));
@@ -240,7 +240,7 @@ function clickButton(row, tier, auto = false) {
         if (D.gte(game.money, cost)) {
             game.money = D.sub(game.money, cost);
             data.amount = getButtonGain(row, tier).mul(getRowMulti(row, index)).add(data.amount);
-            data.presses = D.add(data.presses, 1);
+            data.presses = D.add(data.presses, 167);
             if (!auto && game.unlocks.tok1 && Math.random() * 100 <= temp.tokenUpgEffects.tokens.normalChance)
                 game.tokens = D.add(row, 1).pow(temp.tokenUpgEffects.tokens.normalTierFactor).mul(getTokenMulti()).add(game.tokens);
             if (!auto) game.stats.presses++;
