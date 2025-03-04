@@ -52,100 +52,100 @@ let unlocks = {
     "btn4": {
         requires: ["btn3"],
         desc: () => "Unlock X-axis expansion",
-        condition: () => D.gte(getRowAmount(0), 1e9),
-        conDisplay: () => "−" + format(1e9) + " Multi",
-        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 0)); r.amount = D.sub(r.amount, 1e9); makeRow(1); },
+        condition: () => D.gte(getRowAmount(0), 10),
+        conDisplay: () => "−" + format(10) + " Multi",
+        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 0)); r.amount = D.sub(r.amount, 10); makeRow(1); },
     },
     "btn5": {
         requires: ["btn3"],
         desc: () => "Unlock Y-axis expansion",
-        condition: () => D.gte(game.money, 1e12),
-        conDisplay: () => "−" + format(1e12) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e12); },
+        condition: () => D.gte(game.money, 10),
+        conDisplay: () => "−" + format(10) + " Money",
+        execute: () => { game.money = D.sub(game.money, 10); },
     },
     "btn6": {
         requires: ["btn5"],
         desc: () => "Mark button numbers",
-        condition: () => D.gte(game.money, 1e25),
-        conDisplay: () => "−" + format(1e25) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e25); allDirty = true; },
+        condition: () => D.gte(game.money, 10),
+        conDisplay: () => "−" + format(10) + " Money",
+        execute: () => { game.money = D.sub(game.money, 10); allDirty = true; },
     },
     "rne1": {
         requires: ["btn4"],
         desc: () => "Unlock Runes",
         condition: () => D.gte(getRowAmount(2), 1),
-        conDisplay: () => "−" + format(1) + " Prestige",
-        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 2)); r.amount = D.sub(r.amount, 1); updateTabVisibility(); },
+        conDisplay: () => "−" + format(0) + " Prestige",
+        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 2)); r.amount = D.sub(r.amount, 0); updateTabVisibility(); },
     },
     "rne2": {
         requires: ["rne1"],
         desc: () => "Unlock Rune merging",
-        condition: () => D.gte(game.gems, 2500),
-        conDisplay: () => "−" + format(2500) + " Gems",
-        execute: () => { game.gems = D.sub(game.gems, 2500); },
+        condition: () => D.gte(game.gems, 25),
+        conDisplay: () => "−" + format(25) + " Gems",
+        execute: () => { game.gems = D.sub(game.gems, 25); },
     },
     "rne3": {
         requires: ["rne2"],
         desc: () => "Unlock Bulk scraping",
-        condition: () => D.gte(game.scraps, 250),
-        conDisplay: () => "−" + format(250) + " Glyphs",
-        execute: () => { game.scraps = D.sub(game.scraps, 250); },
+        condition: () => D.gte(game.scraps, 2),
+        conDisplay: () => "−" + format(2) + " Glyphs",
+        execute: () => { game.scraps = D.sub(game.scraps, 2); },
     },
     "mle1": {
         requires: ["rne1"],
         desc: () => "Unlock Milestones",
         condition: () => D.gte(getRowAmount(3), 1),
-        conDisplay: () => "−" + format(1) + " Power",
-        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 3)); r.amount = D.sub(r.amount, 1); updateTabVisibility(); },
+        conDisplay: () => "−" + format(0) + " Power",
+        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 3)); r.amount = D.sub(r.amount, 0); updateTabVisibility(); },
     },
     "tok1": {
         requires: ["mle1"],
         desc: () => "Unlock Tokens",
         condition: () => D.gte(getRowAmount(4), 1),
-        conDisplay: () => "−" + format(1) + " Ascension",
-        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 4)); r.amount = D.sub(r.amount, 1); updateTabVisibility(); },
+        conDisplay: () => "−" + format(0) + " Ascension",
+        execute: () => { let r = game.ladder.find(x => D.eq(x.tier, 4)); r.amount = D.sub(r.amount, 0); updateTabVisibility(); },
     },
     "tok2": {
         requires: ["tok1"],
         desc: () => "Unlock Rune upgrades",
-        condition: () => D.gte(game.tokens, 2000),
-        conDisplay: () => "−" + format(2000) + " Tokens",
-        execute: () => { game.tokens = D.sub(game.tokens, 2000); },
+        condition: () => D.gte(game.tokens, 2),
+        conDisplay: () => "−" + format(2) + " Tokens",
+        execute: () => { game.tokens = D.sub(game.tokens, 2); },
     },
     "tok3": {
         requires: ["tok2"],
         desc: () => "Unlock Rune effect shop",
-        condition: () => D.gte(game.tokens, 10000),
-        conDisplay: () => "−" + format(10000) + " Tokens",
-        execute: () => { game.tokens = D.sub(game.tokens, 10000); },
+        condition: () => D.gte(game.tokens, 1),
+        conDisplay: () => "−" + format(1) + " Tokens",
+        execute: () => { game.tokens = D.sub(game.tokens, 1); },
     },
     "atm1": {
         requires: ["btn6"],
         desc: () => "Unlock Automation",
-        condition: () => D.gte(game.money, 1e100),
-        conDisplay: () => "−" + format(1e100) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e100); updateTabVisibility(); },
+        condition: () => D.gte(game.money, 10),
+        conDisplay: () => "−" + format(10) + " Money",
+        execute: () => { game.money = D.sub(game.money, 10); updateTabVisibility(); },
     },
     "atm1a": {
         requires: ["atm1"],
         desc: () => "Unlock Reset Automator",
-        condition: () => D.gte(game.money, 1e200),
-        conDisplay: () => "−" + format(1e200) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e200); },
+        condition: () => D.gte(game.money, 1200),
+        conDisplay: () => "−" + format(1200) + " Money",
+        execute: () => { game.money = D.sub(game.money, 1200); },
     },
     "atm2a": {
         requires: ["atm1a"],
         desc: () => "Unlock Automator configs",
-        condition: () => D.gte(game.money, 1e250),
-        conDisplay: () => "−" + format(1e250) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e250); },
+        condition: () => D.gte(game.money, 1250),
+        conDisplay: () => "−" + format(1250) + " Money",
+        execute: () => { game.money = D.sub(game.money, 1250); },
     },
     "atm3a": {
         requires: ["atm2a"],
         desc: () => "Unlock Automator controller",
-        condition: () => D.gte(game.money, 1e300),
-        conDisplay: () => "−" + format(1e300) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e300); },
+        condition: () => D.gte(game.money, 1300),
+        conDisplay: () => "−" + format(1300) + " Money",
+        execute: () => { game.money = D.sub(game.money, 1300); },
     },
     "atm4a": {
         requires: ["atm3a"],
@@ -157,51 +157,51 @@ let unlocks = {
     "atm5a": {
         requires: ["atm4a", "sig1"],
         desc: () => "Unlock Sigil Automator",
-        condition: () => D.gte(temp.sigilPoints, 1250),
-        conDisplay: () => "≥" + format(1250) + " Sigil Points",
+        condition: () => D.gte(temp.sigilPoints, 1),
+        conDisplay: () => "≥" + format(1) + " Sigil Points",
         execute: () => {  },
     },
     "atm2": {
         requires: ["atm1"],
         desc: () => "Unlock Big Charges",
-        condition: () => D.gte(game.charge, 500),
-        conDisplay: () => "−" + format(500) + " Charge",
-        execute: () => { game.charge = D.sub(game.charge, 500); },
+        condition: () => D.gte(game.charge, 0),
+        conDisplay: () => "−" + format(0) + " Charge",
+        execute: () => { game.charge = D.sub(game.charge, 0); },
     },
     "atm3": {
         requires: ["atm2"],
         desc: () => "Unlock Wide Charges",
-        condition: () => D.gte(game.charge, 10000),
-        conDisplay: () => "−" + format(10000) + " Charge",
-        execute: () => { game.charge = D.sub(game.charge, 10000); },
+        condition: () => D.gte(game.charge, 0),
+        conDisplay: () => "−" + format (0) + " Charge",
+        execute: () => { game.charge = D.sub(game.charge, 0); },
     },
     "atm4": {
         requires: ["atm3", "tok1"],
         desc: () => "Charges give Tokens",
-        condition: () => D.gte(game.charge, 62500),
-        conDisplay: () => "−" + format(62500) + " Charge",
-        execute: () => { game.charge = D.sub(game.charge, 62500); },
+        condition: () => D.gte(game.charge, 0),
+        conDisplay: () => "−" + format(0) + " Charge",
+        execute: () => { game.charge = D.sub(game.charge, 0); },
     },
     "sig1": {
         requires: ["tok1"],
         desc: () => "Unlock Sigils",
-        condition: () => D.gte(temp.skillLevel,100),
-        conDisplay: () => "Skill level ≥" + format(100) + "",
+        condition: () => D.gte(temp.skillLevel,1),
+        conDisplay: () => "Skill level ≥" + format(1) + "",
         execute: () => { updateTabVisibility(); },
     },
     "col1": {
         requires: ["sig1", "atm4", "atm4a", "tok3", "rne3"],
         desc: () => "Unlock Collapse",
-        condition: () => D.gte(temp.skillLevel,200),
-        conDisplay: () => "Skill level ≥" + format(200) + "",
+        condition: () => D.gte(temp.skillLevel,2),
+        conDisplay: () => "Skill level ≥" + format(2) + "",
         execute: () => { updateTabVisibility(); },
     },
     "abs1": {
         requires: ["col1"],
         desc: () => "Unlock Abstract",
-        condition: () => D.gte(game.colPoints, 1e5),
-        conDisplay: () => "−" + format(1e5) + " Collapse Pts.",
-        execute: () => { game.colPoints = D.sub(game.colPoints, 1e5); },
+        condition: () => D.gte(game.colPoints, 15),
+        conDisplay: () => "−" + format(15) + " Collapse Pts.",
+        execute: () => { game.colPoints = D.sub(game.colPoints, 15); },
     },
 }
 let visibleUnlocks = [];
@@ -220,8 +220,8 @@ function getRowMulti(row, index) {
     return D.add(getRowAmount(D.add(row, 1)), 1).mul(temp.milestoneMultis[index] ?? 1).mul(temp.sigilEffects[index] ?? 1);
 }
 function getButtonCost(row, tier) {
-    let base = D.eq(row, 0) ? 5 : D.eq(row, 1) ? 1e5 : D.pow(2, row).mul(250);
-    return D.add(row, 1).mul(10).pow(D.pow(1.1, tier).sub(1).mul(10)).mul(base);
+    let base = D.eq(row, 0) ? 5 : D.eq(row, 1) ? 1e5 : D.pow(2, row).mul(2);
+    return D.add(row, 1).mul(10).pow(D.pow(1.1, tier).sub(1).mul(1)).mul(base);
 }
 function getHighestButton(row, amount) {
     let base = D.eq(row, 0) ? 5 : D.eq(row, 1) ? 1e5 : D.pow(2, row).mul(250);
@@ -240,7 +240,7 @@ function clickButton(row, tier, auto = false) {
         if (D.gte(game.money, cost)) {
             game.money = D.sub(game.money, cost);
             data.amount = getButtonGain(row, tier).mul(getRowMulti(row, index)).add(data.amount);
-            data.presses = D.add(data.presses, 167);
+            data.presses = D.add(data.presses, 1);
             if (!auto && game.unlocks.tok1 && Math.random() * 100 <= temp.tokenUpgEffects.tokens.normalChance)
                 game.tokens = D.add(row, 1).pow(temp.tokenUpgEffects.tokens.normalTierFactor).mul(getTokenMulti()).add(game.tokens);
             if (!auto) game.stats.presses++;
