@@ -45,9 +45,9 @@ let unlocks = {
     "btn3": {
         requires: ["btn2"],
         desc: () => "Unlock Resets",
-        condition: () => D.gte(game.money, 1e5),
-        conDisplay: () => "−" + format(1e5) + " Money",
-        execute: () => { game.money = D.sub(game.money, 1e5); makeRow(0); },
+        condition: () => D.gte(game.money, 10),
+        conDisplay: () => "−" + format(10) + " Money",
+        execute: () => { game.money = D.sub(game.money, 10); makeRow(0); },
     },
     "btn4": {
         requires: ["btn3"],
