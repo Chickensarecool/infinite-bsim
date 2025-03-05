@@ -213,7 +213,7 @@ let visibleUnlocks = [];
 function getButtonGain(row, tier) {
     let base = D.eq(row, 0) ? 8 : 4;
     let mult = D.eq(row, 0) ? 1 : D.add(row, 1);
-    return D.pow(base, D.pow(1.05, tier).sub(1).mul(20)).mul(mult);
+    return D.pow(base, D.pow(1.05, tier).sub(1).mul(2069)).mul(mult);
 }
 function getRowMulti(row, index) {
     index ??= game.ladder.findIndex(x => D.eq(x.tier, row));
@@ -221,7 +221,7 @@ function getRowMulti(row, index) {
 }
 function getButtonCost(row, tier) {
     let base = D.eq(row, 0) ? 5 : D.eq(row, 1) ? 1e5 : D.pow(2, row).mul(2);
-    return D.add(row, 1).mul(10).pow(D.pow(1.1, tier).sub(1).mul(1)).mul(base);
+    return D.add(row, 1).mul(1).pow(D.pow(1.1, tier).sub(1).mul(1)).mul(base);
 }
 function getHighestButton(row, amount) {
     let base = D.eq(row, 0) ? 5 : D.eq(row, 1) ? 1e5 : D.pow(2, row).mul(250);
