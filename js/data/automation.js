@@ -7,31 +7,31 @@ let chargerUpgrades = {
         effectAmount: (x) => D.pow(2, x),
         effectText: ["×{0}", "all Charge gains"],
         effectPrecision: 0,
-        costAmount: (x) => D.pow(3, x).mul(1),
+        costAmount: (x) => D.pow(1, x).mul(1),
     },
     distance: {
         effectAmount: (x) => 38000 / (19 + D(x).toNumber()),
         effectText: ["{0}px", "average charge distance"],
         effectPrecision: 0,
-        costAmount: (x) => D.add(9, x).pow(x).mul(1),
+        costAmount: (x) => D.add(1, x).pow(x).mul(1),
     },
     maxHeight: {
         effectAmount: (x) => D.add(x, 5).toNumber(),
         effectText: ["{0}", "max charge block height"],
         effectPrecision: 0,
-        costAmount: (x) => D.pow(100, D.pow(x, 2).add(x).div(2)).mul(1),
+        costAmount: (x) => D.pow(1, D.pow(x, 2).add(x).div(2)).mul(1),
     },
     fillBonus: {
         effectAmount: (x) => D.mul(0.05, x),
         effectText: ["+{0}×", "Charge/charge in charger"],
         effectPrecision: 2,
-        costAmount: (x) => D.add(9, x).pow(x).mul(2),
+        costAmount: (x) => D.add(1, x).pow(x).mul(1),
     },
     upgBonus: {
         effectAmount: (x) => D.mul(0.02, x),
         effectText: ["+{0}×", "Charge/automator upgrades"],
         effectPrecision: 2,
-        costAmount: (x) => D.add(9, x).mul(2).pow(x).mul(5),
+        costAmount: (x) => D.add(1, x).mul(1).pow(x).mul(1),
     },
 }
 
