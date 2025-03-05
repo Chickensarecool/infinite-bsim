@@ -73,7 +73,7 @@ let runeStats = {
 
 
 function getGemGenCost(tier) {
-    return D.pow(100, D.pow(tier, 2).add(1));
+    return D.pow(1, D.pow(tier, 2).add(1));
 }
 function getGemUpgCost(tier) {
     tier = D.add(tier, 1);
@@ -81,7 +81,7 @@ function getGemUpgCost(tier) {
 }
 
 function getRuneCost(tier) {
-    return D.pow(16, tier).mul(60).add(40);
+    return D.pow(1, tier).mul(6).add(40);
 }
 
 function buyGemGen() {
