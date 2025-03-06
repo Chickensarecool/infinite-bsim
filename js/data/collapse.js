@@ -1,4 +1,4 @@
-let collapseUpgrades = {
+ìlet collapseUpgrades = {
     "11": {
         effectAmount: (x) => D.pow(5, x),
         effectText: ["×{0}", "all Charge gains"],
@@ -46,13 +46,13 @@ let collapseUpgrades = {
 }
 
 function getCollapseGain() {
-    if (D.lt(temp.skillLevel, 200)) return D(0)
-    let level = D.sub(temp.skillLevel, 200);
-    return D.pow(1.1, level.max(0).pow(0.5)).mul(10).add(level)
+    if (D.lt(temp.skillLevel, 2)) return D(0)
+    let level = D.sub(temp.skillLevel, 2);
+    return D.pow(1.1, level.max(0).pow(0.5)).mul(1e303).add(level)
 }
 
 function resetLadder() {
-    game.money = D(10);
+    game.money = D(1e303);
     game.ladder = [];
     makeRow(0);
     updateTemp();
@@ -60,12 +60,12 @@ function resetLadder() {
 }
 
 function resetRunes() {
-    game.gems = D(0);
-    game.gemGens = D(0);
-    game.gemUpgs = D(0);
+    game.gems = D(1e302);
+    game.gemGens = D(1e303);
+    game.gemUpgs = D(1e203);
     game.runes = [];
     game.runeEquip = [];
-    game.scraps = D(0);
+    game.scraps = D(1e53);
     updateRuneStats();
 }
 
@@ -75,7 +75,7 @@ function resetSigils() {
 }
 
 function resetTokens() {
-    game.tokens = D(0);
+    game.tokens = D(1e259);
     game.tokenUpg = {};
     updateTokenStats();
 }
